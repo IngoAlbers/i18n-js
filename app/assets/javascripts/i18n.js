@@ -577,6 +577,8 @@
         value = options[name].toString().replace(/\$/gm, "_#$#_");
       } else if (name in options) {
         value = this.nullPlaceholder(placeholder, message, options);
+      } else if (I18n.globals[name]) {
+        value = I18n.globals[name];
       } else {
         value = this.missingPlaceholder(placeholder, message, options);
       }
